@@ -1,0 +1,22 @@
+ion-content {
+  .main_lbl {
+    font-size: 18px;
+    color: var(--blue);
+    font-family: "rubik_md";
+  }
+  .info_lbl {
+    font-size: 14px;
+    font-family: "rubik_r";
+    color: var(--gray);
+  }
+  .info_div {
+    display: flex;
+    padding: 5px 0px;
+  }
+  .num_lbl {
+    margin: 0px 15px 0px 0px;
+  }
+  .data_lbl {
+    margin: 0;
+  }
+}

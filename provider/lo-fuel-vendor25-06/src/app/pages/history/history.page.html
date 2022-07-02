@@ -1,0 +1,52 @@
+<ion-header class="ion-no-border">
+    <ion-toolbar mode="md">
+        <ion-buttons slot="start">
+            <ion-menu-button auto-hide="false"></ion-menu-button>
+        </ion-buttons>
+        <ion-title>history</ion-title>
+    </ion-toolbar>
+    <div class="week_div">
+        <h3 class="info_lbl" *ngFor="let b of btn" (click)="btnChange(b.name)" [ngClass]="selectt == b.name ? 'at_week' : 'info_lbl'">{{ b?.name }}</h3>
+    </div>
+    <ion-row>
+        <ion-col class="first_col">
+            <p class="date_lbl">Start Date</p>
+            <ion-datetime placeholder="Select start date" id="dynamicDisabled" (ionChange)="dateFrom()" displayFormat="YYYY-MM-DD" [(ngModel)]="from"></ion-datetime>
+        </ion-col>
+        <ion-col>
+            <p class="date_lbl">End Date</p>
+            <ion-datetime placeholder="Select End date" id="dynamicDisabled" (ionChange)="dateTo()" displayFormat="YYYY-MM-DD" [(ngModel)]="to"></ion-datetime>
+        </ion-col>
+    </ion-row>
+</ion-header>
+
+<ion-content class="ion-padding">
+    <div class="history_div" *ngFor="let item of historyData" (click)="orderStatus(item.id)">
+        <div class="back_div" [ngClass]="{'pen_back': item?.status == 0,'com_back': item?.status == 3,'can_back': item?.status == 4 || item?.status == 6}">
+            <h3 class="name">{{item?.user?.name}}</h3>
+            <p class="add">{{item?.address | slice:0:40}} <span *ngIf="item?.address.length > 40">...</span></p>
+        </div>
+        <div class="front_div">
+            <div class="detail_div">
+                <p class="date_lbl">Date & Time <span class="ion-float-right">Price</span></p>
+                <p class="data_lbl">{{item?.time | date}} <span class="ion-float-right">{{item?.currency}} {{item?.price}}.00</span></p>
+                <p class="data_lbl time_lbl">{{item?.time | date : 'HH:mm'}}</p>
+                <p class="date_lbl">Vehicle Name <span class="ion-float-right">Vehicle No</span></p>
+                <p class="data_lbl">{{item?.model?.model?.brand?.name}}<span class="ion-float-right">{{item?.model?.reg_number}}</span></p>
+            </div>
+            <div class="img_div" [ngClass]="{'pending': item?.status == 0,'complete': item?.status == 3,'cancel': item?.status == 4 || item?.status == 6}">
+                <div class="status_div">
+                    <img src=" ../../../assets/image/fuel.png">
+                    <p class="st_lbl" *ngIf="item?.status == 0">Pending</p>
+                    <p class="st_lbl" *ngIf="item?.status == 3">Completed</p>
+                    <p class="st_lbl" *ngIf="item?.status == 4">Canceled</p>
+                    <p class="st_lbl" *ngIf="item?.status == 6">Rejected</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div *ngIf="historyData?.length == 0" no-data>
+        <img src="../../../assets/nodata.png">
+    </div>
+</ion-content>

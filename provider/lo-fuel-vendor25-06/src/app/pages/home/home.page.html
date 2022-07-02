@@ -1,0 +1,62 @@
+<ion-header class="ion-no-border">
+    <ion-toolbar mode="md">
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-buttons slot="end">
+            <ion-button>
+                <ion-toggle (ionChange)="change()" mode="md" [checked]="is_online == 1" [(ngModel)]="is_online">
+                </ion-toggle>
+            </ion-button>
+        </ion-buttons>
+        <ion-title>Lofuel</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content no-bounce class="ion-padding-bottom">
+    <agm-map [styles]="styles" [latitude]="latitude" [longitude]="longitude" [disableDefaultUI]="true">
+        <agm-marker [latitude]="latitude" [longitude]="longitude" [iconUrl]="icon">
+        </agm-marker>
+    </agm-map>
+</ion-content>
+<ion-bottom-drawer [(state)]="drawerState" [minimumHeight]="minimumHeight" [dockedHeight]="dockedHeight" [shouldBounce]="shouldBounce" [distanceTop]="distanceTop">
+    <div class="drawer-content">
+        <div class="nearby_div" [ngClass]="drawerState == 2 ? 'nearby':''">
+            <div class="hendle_div" (click)="viewAll()">
+            </div>
+            <div class="available" [ngClass]="{'avail_no': drawerState == 2}">
+                <h3 class="info_lbl">Nearby Delivery</h3>
+            </div>
+            <div class="waiting_div" *ngIf="drawerState != 2">
+                <p class="wait_lbl">
+                    <ion-icon src="../../../assets/image_icon/time.svg"></ion-icon>{{data?.length}} Delivery Waiting...
+                </p>
+            </div>
+            <div class="list_div">
+                <div class="order_div" *ngFor="let item of data" (click)="trackOrder(item)">
+                    <h3 class="od_no">{{item?.order_id}}</h3>
+                    <div class="data_div">
+                        <img [src]="item?.user?.imageUri">
+                        <div class="info_div">
+                            <h3 class="name">{{item?.user?.name}}</h3>
+                            <p class="add">{{item?.address}}</p>
+                            <p class="add gallon">{{item?.qty}} Gallon Fuel</p>
+                        </div>
+                    </div>
+                    <div class="detail_div">
+                        <p class="date_lbl">Date & Time <span class="ion-float-right">Price</span></p>
+                        <p class="data_lbl">{{item?.time}} <span class="ion-float-right">{{item?.currency}} {{item?.price}}</span></p>
+                        <p class="date_lbl">Vehicle Name <span class="ion-float-right">Vehicle No</span></p>
+                        <p class="data_lbl">{{item?.model?.model?.brand?.name}} {{item?.model?.name}}<span class="ion-float-right">{{item?.model?.reg_number}}</span></p>
+                    </div>
+                    <div class="track_div" (click)="trackOrder(item)">
+                        <ion-icon src="../../../assets/image_icon/nav.svg"></ion-icon>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="data?.length == 0" class="ion-text-center">
+                <img src="../../../assets/nodata.png" alt="">
+            </div>
+        </div>
+    </div>
+</ion-bottom-drawer>

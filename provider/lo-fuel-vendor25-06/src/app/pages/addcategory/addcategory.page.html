@@ -1,0 +1,98 @@
+<ion-header class="ion-no-border">
+    <ion-toolbar class="category">
+        <ion-title class="ion-no-border">Add Category</ion-title>
+        <ion-buttons slot="end">
+            <ion-button (click)="close()">
+                <ion-icon slot="icon-only" name="close"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content mode="ios">
+    <ion-card>
+        <ion-card-content>
+            <ion-row>
+                <ion-col size="11" class="price_lbl ">
+                    Title
+                </ion-col>
+                <ion-col size="1" class="price_lbl ">
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col size="12" class="price_lbl">
+                    <ion-select placeholder="Please select fule" mode="md" value="notifications" interface="action-sheet" (ionChange)="changeFuel($event)">
+                        <div *ngFor="let fule of fuleType">
+                            <ion-select-option value="{{ fule.id }}">{{ fule.name }}</ion-select-option>
+                        </div>
+                    </ion-select>
+                </ion-col>
+            </ion-row>
+        </ion-card-content>
+        <div class="borderBottom"></div>
+        <ion-card-content>
+            <ion-row>
+                <ion-col size="11" class="price_lbl ">
+                    Sub Title
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col size="12" class="price_lbl">
+                    <ion-select mode="md" [disabled]="selectedId==''" placeholder="Please select type of fule" value="notifications" interface="action-sheet" [(ngModel)]="selectedfuelCat">
+                        <div *ngFor="let fuleC of fuleTypeCat">
+                            <ion-select-option value="{{ fuleC.id }}">{{ fuleC.name }}</ion-select-option>
+                        </div>
+                    </ion-select>
+                </ion-col>
+            </ion-row>
+        </ion-card-content>
+        <div class="borderBottom"></div>
+        <ion-card-content>
+            <ion-row>
+                <ion-col size="11" class="price_lbl ">
+                    {{ regular.name }}
+                </ion-col>
+                <ion-col size="1" class="price_lbl ">
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col size="11" class="price_lbl ">
+                    <ion-input [(ngModel)]="regular.price" placeholder="Please enter regular price"></ion-input>
+                </ion-col>
+            </ion-row>
+        </ion-card-content>
+        <div class="borderBottom"></div>
+        <ion-card-content>
+            <ion-row>
+                <ion-col size="11" class="price_lbl ">
+                    {{ standard.name }}
+                </ion-col>
+                <ion-col size="1" class="price_lbl ">
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col size="11" class="price_lbl ">
+                    <ion-input [(ngModel)]="standard.price" placeholder="Please enter standard price"></ion-input>
+                </ion-col>
+            </ion-row>
+        </ion-card-content>
+        <div class="borderBottom"></div>
+        <ion-card-content>
+            <ion-row>
+                <ion-col size="11" class="price_lbl ">
+                    {{ premium.name }}
+                </ion-col>
+                <ion-col size="1" class="price_lb ">
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col size="11" class="price_lbl ">
+                    <ion-input [(ngModel)]="premium.price" placeholder="Please enter premium price"></ion-input>
+                </ion-col>
+            </ion-row>
+        </ion-card-content>
+    </ion-card>
+</ion-content>
+<ion-footer>
+    <ion-button (click)="add()" expand="full" class="saveBtn">Add</ion-button>
+</ion-footer>

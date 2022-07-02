@@ -1,0 +1,7 @@
+{
+  "name": "lofuleEmployee",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

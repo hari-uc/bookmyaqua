@@ -1,0 +1,50 @@
+<ion-content class="ion-padding-top ion-padding-horizontal">
+    <div class="logo_div">
+        <img src="../../../assets/image/logo.png">
+        <h3 class="logo_tittle">Lofuel</h3>
+        <p class="page_tittle">fuel or gas anywhere at any time</p>
+        <p class="main_lbl">Sign Up</p>
+    </div>
+    <div class="data_div">
+        <ion-item lines="none" class="data_item">
+            <ion-label position="stacked" class="info_label" mode="ios">Name</ion-label>
+            <ion-input required type="text" class="data_input" [(ngModel)]="name" placeholder="jcob"></ion-input>
+        </ion-item>
+        <span class="err" *ngIf="err">{{err?.name}}</span>
+        <ion-item lines="none" class="data_item">
+            <ion-label position="stacked" class="info_label" mode="ios">Email</ion-label>
+            <ion-input required type="text" class="data_input" [(ngModel)]="email" placeholder="jacobpalmer@gmail.com">
+            </ion-input>
+        </ion-item>
+        <span class="err" *ngIf="err">{{err?.email}}</span>
+        <ion-item lines="none" class="data_item">
+            <ion-label position="stacked" class="info_label" mode="ios">Password</ion-label>
+            <ion-input required type="Password" class="data_input" [(ngModel)]="password"
+                placeholder="*  *  *  *  *  *"></ion-input>
+            <ion-button slot="end" class="transparent_btn password_btn">
+                <ion-icon src="../../../assets/image_icon/Ic_eye.svg"></ion-icon>
+            </ion-button>
+        </ion-item>
+        <span class="err" *ngIf="err">{{err?.password}}</span>
+        <ion-item lines="none" class="data_item">
+            <ion-label position="stacked" class="info_label" mode="ios">Phone No.</ion-label>
+            <ion-input required type="tel" class="data_input" [(ngModel)]="confirmPass" placeholder="7878787878">
+            </ion-input>
+            <ion-button slot="end" class="transparent_btn password_btn">
+                <ion-icon src="../../../assets/image_icon/Ic_eye.svg"></ion-icon>
+            </ion-button>
+        </ion-item>
+        <span class="err" *ngIf="err">{{err?.phone_no}}</span>
+
+        <ion-button class="main_btn sign_up" mode="md" expand="full" shape="round" fill="solid" (click)="signIn()">
+            Sign up
+        </ion-button>
+
+
+
+        <div class="signup_div">
+            <span class="text">Aleready have an account?</span>
+            <ion-button (click)="signIn()" class="transparent_btn signup_btn" (click)="login()">Sign in</ion-button>
+        </div>
+    </div>
+</ion-content>

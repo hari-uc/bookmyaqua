@@ -1,0 +1,169 @@
+ion-header {
+  ion-toggle {
+    --background-checked: var(--toggle);
+    --handle-background: var(--gray);
+    padding-right: 0;
+  }
+}
+
+ion-bottom-drawer {
+  background-color: transparent;
+  touch-action: auto !important;
+  overflow: scroll;
+
+  .drawer-content {
+    padding-bottom: 30px;
+
+    .nearby_div {
+      border-radius: 20px 20px 0px 0px;
+      width: 100%;
+      background-color: var(--white);
+      box-shadow: 0px -1px 6px 0px rgba(0, 0, 0, 0.16);
+      padding-top: 10px;
+      .hendle_div {
+        height: 5px;
+        width: 50px;
+        background-color: var(--silver);
+        border-radius: 10px;
+        margin: auto;
+      }
+      .available {
+        display: flex;
+        justify-content: space-between;
+        padding: 25px 16px 10px 16px;
+        border-bottom: dashed;
+        border-bottom-width: 1px;
+        border-bottom-color: var(--silver);
+        .info_lbl {
+          font-size: 18px;
+          color: var(--blue);
+          font-family: "rubik_md";
+          margin: 0;
+        }
+        .fuel {
+          .fuel_p {
+            font-size: 14px;
+            color: var(--blue);
+            font-family: "rubik_md";
+            margin: 0;
+          }
+          .lowFuel {
+            color: var(--google_plus);
+          }
+        }
+
+        .gallon_p {
+          text-align: end;
+          margin-top: 3px !important;
+        }
+      }
+      .avail_no {
+        border: none;
+      }
+      .waiting_div {
+        padding: 10px 16px;
+        .wait_lbl {
+          font-size: 18px;
+          color: var(--blue);
+          font-family: "rubik_md";
+          ion-icon {
+            color: var(--my_theme);
+            margin-right: 15px;
+          }
+        }
+      }
+      .list_div {
+        padding: 15px 16px;
+        overflow: scroll;
+        .order_div {
+          width: 100%;
+          background-color: var(--white);
+          border-radius: 5px;
+          box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2);
+          padding: 10px;
+          margin-bottom: 35px;
+          position: relative;
+        }
+        .od_no {
+          font-size: 13px;
+          font-family: "rubik_r";
+          color: var(--my_theme);
+          text-align: end;
+          margin: 0px 10px 0px 0px;
+        }
+        .data_div {
+          display: flex;
+          padding-bottom: 10px;
+          border-bottom: dashed;
+          border-bottom-width: 1px;
+          border-bottom-color: var(--silver);
+          img {
+            height: 60px;
+            width: 60px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
+            border: solid 2px var(--white);
+          }
+          .info_div {
+            padding-left: 15px;
+
+            .name {
+              font-size: 18px;
+              color: var(--blue);
+              font-family: "rubik_md";
+              margin: 0;
+            }
+            .add {
+              margin: 4px 0px;
+              font-family: "rubik_r";
+              font-size: 14px;
+              color: var(--silver);
+            }
+            .gallon {
+              margin: 0;
+            }
+          }
+        }
+        .detail_div {
+          padding: 15px 10px 0px 10px;
+          .date_lbl {
+            font-size: 12px;
+            color: var(--silver);
+            margin-top: 0;
+            margin-bottom: 5px;
+            font-family: "rubik_md";
+          }
+          .data_lbl {
+            font-size: 13px;
+            color: var(--blue);
+            font-family: "rubik_md";
+            margin: 0;
+          }
+          .time_lbl {
+            margin-bottom: 10px;
+          }
+        }
+        .track_div {
+          height: 46px;
+          width: 46px;
+          border-radius: 50%;
+          background-color: var(--my_theme);
+          position: absolute;
+          left: 43%;
+          bottom: -20px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          ion-icon {
+            width: 23px;
+            height: 22px;
+          }
+        }
+      }
+    }
+    .nearby {
+      box-shadow: none;
+      border-radius: 0px;
+    }
+  }
+}

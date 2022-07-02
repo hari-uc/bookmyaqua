@@ -1,0 +1,68 @@
+<ion-header class="ion-no-border">
+    <ion-toolbar mode="md">
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-buttons slot="end">
+            <ion-button>
+                <ion-toggle mode="md" checked></ion-toggle>
+            </ion-button>
+        </ion-buttons>
+        <ion-title>track</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <agm-map [styles]="styles" [latitude]="Centerlat" [longitude]="Centerlng" [disableDefaultUI]="true">
+        <agm-direction [origin]="origin" [destination]="destination" [renderOptions]="renderOptions" [markerOptions]="markerOptions">
+        </agm-direction>
+        <!-- <agm-marker [latitude]="Centerlat" [longitude]="Centerlng" [iconUrl]="iconUrl">
+        </agm-marker> -->
+    </agm-map>
+    <div class="order_div">
+        <h3 class="od_no">Order No. #{{single?.order_id}}</h3>
+        <div class="data_div">
+            <img src="{{single?.user?.imageUri}}">
+            <div class="info_div">
+                <h3 class="name">{{single?.user?.name}}</h3>
+                <p class="add">{{single?.address}}</p>
+                <p class="add gallon">{{single?.qty}} Gallon {{single?.fuel_type}}</p>
+            </div>
+        </div>
+        <div class="detail_div">
+            <p class="date_lbl">Date & Time <span class="ion-float-right">Price</span></p>
+            <p class="data_lbl"> <span class="ion-float-right">{{single?.currency}} {{single?.price}}.00</span></p>
+            <p class="data_lbl time_lbl">{{single?.time | date : 'yyyy-dd-mm HH:mm'}}</p>
+            <p class="date_lbl">Vehicle Name <span class="ion-float-right">Vehicle No</span></p>
+            <p class="data_lbl">{{single?.model?.model?.brand?.name}} {{single?.model?.name}}<span class="ion-float-right">{{single?.model?.reg_number}}</span></p>
+        </div>
+    </div>
+</ion-content>
+<ion-footer class="ion-no-border">
+    <ion-button *ngIf="single?.status == 0" class="main_btn ion-text-capitalize complete_btn" expand="full" (click)="completeOrder('A')">
+        Approve
+    </ion-button>
+    <ion-button *ngIf="single?.status == 1" class="main_btn ion-text-capitalize complete_btn" expand="full" (click)="completeOrder('O')">
+        On the Way
+    </ion-button>
+    <ion-row class="ion-no-padding">
+        <ion-col size="6" class="ion-no-padding">
+            <ion-button *ngIf="single?.status == 2" class="main_btn ion-text-capitalize complete_btn" expand="full" (click)="completeOrder('CO')">
+                Complete
+            </ion-button>
+        </ion-col>
+        <ion-col size="6" class="ion-no-padding">
+            <ion-button *ngIf="single?.status == 2" class="main_btn2 ion-text-capitalize complete_btn" expand="full" (click)="completeOrder('CA')">
+                Cancel
+            </ion-button>
+        </ion-col>
+    </ion-row>
+    <ion-button *ngIf="single?.status == 3 || single?.status == 4" class="main_btn2 ion-text-capitalize complete_btn" expand="full" (click)="completeOrder('R')">
+        Reject
+    </ion-button>
+
+    <ion-button *ngIf="single?.status == 6" class="main_btn2 ion-text-capitalize" expand="full">
+        Rejected
+    </ion-button>
+
+</ion-footer>

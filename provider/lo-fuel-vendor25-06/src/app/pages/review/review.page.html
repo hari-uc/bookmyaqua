@@ -1,0 +1,52 @@
+<ion-header class="ion-no-border">
+    <ion-toolbar mode="md">
+        <ion-buttons slot="start">
+            <ion-menu-button auto-hide="false"></ion-menu-button>
+        </ion-buttons>
+        <ion-title>review</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles" refreshingText="Refreshing...">
+        </ion-refresher-content>
+    </ion-refresher>
+    <div *ngIf="data">
+        <div class="card_div" *ngFor="let item of data">
+            <img src="{{ item?.user?.imageUri }}" *ngIf="item?.user?.imageUri">
+            <div class="data_div">
+                <p class="name" *ngIf="item?.user?.imageUri">{{ item?.user?.name }}
+                    <span>{{ item?.created_at | date }}</span></p>
+                <p class="rate_p" *ngIf="item?.star">
+                    <ion-icon name="star" [ngClass]="item?.star >= 1 ? 'rated_ic':''"></ion-icon>
+                    <ion-icon name="star" [ngClass]="item?.star >= 2 ? 'rated_ic':''"></ion-icon>
+                    <ion-icon name="star" [ngClass]="item?.star >= 3 ? 'rated_ic':''"></ion-icon>
+                    <ion-icon name="star" [ngClass]="item?.star >= 4 ? 'rated_ic':''"></ion-icon>
+                    <ion-icon name="star" [ngClass]="item?.star >= 5 ? 'rated_ic':''"></ion-icon>
+                </p>
+                <p class="msg" *ngIf="item?.cmt">{{ item?.cmt }}</p>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="!data">
+        <div class="card_div" *ngFor="let item of [1,2,3,4,5,6,7]">
+            <ion-skeleton-text animated class="img" *ngIf="!item?.user?.imageUri"></ion-skeleton-text>
+            <div class="data_div">
+                <ion-skeleton-text animated class="name" *ngIf="!item?.user?.imageUri" style="height:20px">
+                </ion-skeleton-text>
+                <p class="rate_p">
+                    <ion-skeleton-text animated class="rate_p" *ngIf="!item?.star" style="height:20px">
+                    </ion-skeleton-text>
+                </p>
+                <p class="msg">
+                    <ion-skeleton-text animated class="msg" *ngIf="!item?.cmt" style="height:20px"></ion-skeleton-text>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="data?.length == 0" no-data>
+        <img src="../../../assets/nodata.png">
+    </div>
+</ion-content>

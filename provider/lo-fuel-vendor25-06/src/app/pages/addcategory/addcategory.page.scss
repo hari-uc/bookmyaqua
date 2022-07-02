@@ -1,0 +1,56 @@
+ion-header {
+    .category {
+        box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.16) !important;
+        ion-title {
+            color: white;
+            background-color: var(--my_theme);
+            font-family: "rubik_md";
+        }
+        ion-icon {
+            color: white;
+            font-size: 30px;
+        }
+    }
+}
+
+ion-content {
+    .price_lbl {
+        font-size: 18px;
+        color: var(--blue);
+        font-family: "rubik_md";
+    }
+    .borderBottom {
+        border-bottom: dashed;
+        border-bottom-width: 1px;
+    }
+    .dropDown {
+        margin-top: -38px;
+        margin-left: 262px;
+    }
+    ion-select {
+        --padding-start: 0px;
+        --padding-end: 0px;
+        ion-select-option {
+            font-size: 18px;
+            color: var(--blue);
+            font-family: "rubik_md";
+        }
+    }
+    ion-card-content {
+        padding-top: 0px;
+        padding-bottom: 0px;
+    }
+}
+
+ion-footer {
+    .saveBtn {
+        color: white;
+        background-color: var(--my_theme);
+        font-family: "rubik_md";
+        position: absolute;
+        width: 100%;
+        left: 0;
+        bottom: -3px;
+        right: 0;
+    }
+}

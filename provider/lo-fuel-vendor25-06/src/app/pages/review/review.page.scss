@@ -1,0 +1,69 @@
+ion-content {
+    .noData {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 15%;
+        text-align: center;
+    }
+    .card_div {
+        display: flex;
+        margin-bottom: 20px;
+        margin-top: 10px;
+        padding-bottom: 15px;
+        border-bottom: dashed;
+        border-bottom-width: 1px;
+        border-bottom-color: var(--silver);
+        img {
+            box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            height: 60px;
+            width: 60px;
+            border: solid 3px var(--white);
+        }
+        .img {
+            box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            height: 60px;
+            width: 60px;
+            border: solid 3px var(--white);
+        }
+        .data_div {
+            padding-left: 15px;
+            width: 100%;
+            .name {
+                font-size: 18px;
+                color: var(--blue);
+                font-family: "rubik_md";
+                margin: 3px 0px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                span {
+                    font-size: 12px;
+                    font-family: "rubik_r";
+                    color: var(--gray);
+                }
+            }
+            .rate_p {
+                margin-top: 0;
+                margin-bottom: 3px;
+                ion-icon {
+                    width: 15px;
+                    height: 14px;
+                    margin-right: 3px;
+                    color: var(--silver);
+                }
+                .rated_ic {
+                    color: var(--yellow);
+                }
+            }
+            .msg {
+                font-size: 15px;
+                font-family: rubik_r;
+                color: var(--silver);
+                margin: 0;
+            }
+        }
+    }
+}

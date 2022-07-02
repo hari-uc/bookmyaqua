@@ -1,0 +1,52 @@
+<ion-header class="ion-no-border">
+    <ion-toolbar mode="md">
+        <ion-buttons slot="start">
+            <ion-menu-button auto-hide="false"></ion-menu-button>
+        </ion-buttons>
+        <ion-title>Price</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content mode="ios">
+    <!-- <div class="noData"><img src="../../assets/image/nodata.png" *ngIf="data == 0"></div> -->
+
+    <ion-item class="ion-no-padding ion-padding-start" lines="none">
+        <ion-label>Price List</ion-label>
+        <ion-buttons mode="md" slot="end">
+            <ion-button (click)="presentModal()" mode="md">
+                <ion-icon slot="icon-only" name="add"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-item>
+    <div *ngIf="data">
+        <ion-card *ngFor="let item of data">
+            <div>
+                <ion-card-header>
+                    <ion-item class="ion-no-padding" lines="none">
+                        <ion-label>{{item?.title}}</ion-label>
+                        <ion-buttons slot="end">
+                            <ion-button (click)="delete(item?.id)" color="danger">
+                                <ion-icon slot="icon-only" name="trash-sharp"></ion-icon>
+                            </ion-button>
+                        </ion-buttons>
+                    </ion-item>
+                </ion-card-header>
+                <div class="borderBottom"></div>
+                <ion-card-content *ngFor="let fuel of item.fuel_pricing">
+                    <ion-row>
+                        <ion-col size="10" class="price">
+                            {{fuel.name}}
+                        </ion-col>
+                        <ion-col size="2" class="price">
+                            {{fuel.price}}
+                        </ion-col>
+                    </ion-row>
+                </ion-card-content>
+            </div>
+        </ion-card>
+    </div>
+
+    <div *ngIf="data?.length == 0" no-data>
+        <img src="../../../assets/nodata.png">
+    </div>
+</ion-content>

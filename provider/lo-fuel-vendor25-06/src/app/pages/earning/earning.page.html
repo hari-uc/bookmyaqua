@@ -1,0 +1,46 @@
+<ion-header class="ion-no-border">
+    <ion-toolbar mode="md">
+        <ion-buttons slot="start">
+            <ion-menu-button auto-hide="false"></ion-menu-button>
+        </ion-buttons>
+        <ion-title>Earning</ion-title>
+    </ion-toolbar>
+    <div class="week_div">
+        <h3 class="info_lbl" *ngFor="let b of btn" (click)="btnChange(b.name)" [ngClass]="selectt == b.name ? 'at_week' : 'info_lbl'">{{ b?.name }}</h3>
+    </div>
+    <ion-row>
+        <ion-col class="first_col">
+            <p class="date_lbl">Start Date</p>
+            <ion-datetime placeholder="Select start date" id="dynamicDisabled" (ionChange)="dateFrom()" displayFormat="YYYY-MM-DD" [(ngModel)]="from"></ion-datetime>
+        </ion-col>
+        <ion-col>
+            <p class="date_lbl">End Date</p>
+            <ion-datetime placeholder="Select End date" id="dynamicDisabled" (ionChange)="dateTo()" displayFormat="YYYY-MM-DD" [(ngModel)]="to"></ion-datetime>
+        </ion-col>
+    </ion-row>
+</ion-header>
+<ion-content class="ion-padding">
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles" refreshingText="Refreshing...">
+        </ion-refresher-content>
+    </ion-refresher>
+
+    <div class="card_div" *ngFor="let item of data">
+        <h3 class="name">{{ item?.user?.name }} <span>{{ item?.currency }}{{ item?.price }}</span></h3>
+        <p class="add">
+            <ion-icon src="../../../assets/image_icon/map.svg"></ion-icon>{{ item?.address | slice:0:60 }}..
+        </p>
+        <p class="add">
+            <ion-icon src="../../../assets/image_icon/time.svg"></ion-icon>{{ item?.time }}
+        </p>
+    </div>
+
+    <div *ngIf="data?.length == 0" no-data>
+        <img src="../../../assets/nodata.png">
+    </div>
+</ion-content>
+<ion-footer class="ion-no-border">
+    <div class="total_div">
+        <p class="view_lbl">Total order <span class="ion-float-right">{{ data?.length }}</span></p>
+    </div>
+</ion-footer>

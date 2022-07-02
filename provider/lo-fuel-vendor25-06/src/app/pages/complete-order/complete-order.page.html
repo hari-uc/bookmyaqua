@@ -1,0 +1,78 @@
+<ion-header class="ion-no-border">
+    <ion-toolbar mode="md">
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>Order Complete</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <agm-map [styles]="styles" [latitude]="Centerlat" [longitude]="Centerlng" [disableDefaultUI]="true">
+        <agm-marker [latitude]="Centerlat" [longitude]="Centerlng" [iconUrl]="iconUrl">
+        </agm-marker>
+        <agm-marker [latitude]="truckLat" [longitude]="trucklng" [iconUrl]="truck">
+        </agm-marker>
+    </agm-map>
+    <div class="sample">
+        <div type="ticket" class="--flex-column">
+            <div class="top --flex-column">
+                <div class="img_div">
+                    <img src="{{single?.user?.imageUri}}" alt="" />
+                </div>
+                <p class="scan_p">{{single?.user?.name}}</p>
+                <p class="add_lbl">{{single?.address}}</p>
+                <p class="add_lbl or_no">Order No. #{{single?.order_id}}</p>
+            </div>
+            <div class="rip"></div>
+            <div class="bottom --flex-row-j!sb">
+                <ion-row>
+                    <ion-col>
+                        <h3 class="date_lbl">Date</h3>
+                        <p class="date">{{single?.time | date}}</p>
+                    </ion-col>
+                    <ion-col>
+                        <h3 class="date_lbl">Time</h3>
+                        <p class="date">{{single?.time | date : 'HH:mm'}}</p>
+                    </ion-col>
+                </ion-row>
+
+                <ion-row>
+                    <ion-col>
+                        <h3 class="date_lbl">Vehicle Name</h3>
+                        <p class="date">{{single?.model?.model?.brand?.name}} {{single?.model?.name}}</p>
+                    </ion-col>
+                    <ion-col>
+                        <h3 class="date_lbl">Vehicle Number</h3>
+                        <p class="date">{{single?.model?.reg_number}}</p>
+                    </ion-col>
+                </ion-row>
+                <ion-row class="last_row">
+                    <ion-col>
+                        <h3 class="date_lbl">Payment</h3>
+                        <p class="date">{{single?.currency}} {{single?.price}}</p>
+                    </ion-col>
+                    <ion-col>
+                        <h3 class="date_lbl">Payment Method</h3>
+                        <p class="date">{{single?.payment_method}}</p>
+                    </ion-col>
+                </ion-row>
+                <ion-button class="main_btn ion-text-capitalize complete_btn" *ngIf="single?.status == 3" expand="full" (click)="goHome()">
+                    Order Complete Receipt
+                </ion-button>
+
+                <ion-button class="main_btn2 ion-text-capitalize" *ngIf="single?.status == 4" expand="full" (click)="goHome()">
+                    Order Cancel Receipt
+                </ion-button>
+
+                <ion-button class="main_btn2 ion-text-capitalize" *ngIf="single?.status == 6" expand="full" (click)="goHome()">
+                    Order Rejected Receipt
+                </ion-button>
+
+                <ion-button class="main_btn3 ion-text-capitalize" *ngIf="single?.status == 0" expand="full" (click)="goHome()">
+                    Order Pending
+                </ion-button>
+            </div>
+        </div>
+    </div>
+</ion-content>

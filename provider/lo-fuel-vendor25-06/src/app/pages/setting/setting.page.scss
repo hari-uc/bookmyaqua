@@ -1,0 +1,28 @@
+ion-content {
+  ion-item {
+    --padding-start: 0;
+    --inner-padding-end: 0;
+    border-bottom: dashed;
+    border-bottom-width: 1px;
+    border-bottom-color: var(--silver);
+    --detail-icon-opacity: 1;
+    --detail-icon-color: var(--blue);
+    margin-bottom: 10px;
+
+    ion-toggle {
+      padding-right: 0;
+      --background-checked: var(--toggle);
+    }
+  }
+  .st_lbl {
+    font-size: 18px;
+    color: var(--blue);
+    font-family: "rubik_md";
+  }
+  .num_lbl {
+    font-size: 14px;
+    font-family: "rubik_r";
+    color: var(--silver);
+    text-align: end;
+  }
+}

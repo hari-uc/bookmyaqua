@@ -1,0 +1,85 @@
+ion-header {
+  ion-toggle {
+    --background-checked: var(--toggle);
+    --handle-background: var(--gray);
+    padding-right: 0;
+  }
+}
+ion-content {
+  .order_div {
+    height: 223px;
+    width: 100%;
+    background-color: var(--white);
+    position: absolute;
+    bottom: 0;
+    border-radius: 20px 20px 0px 0px;
+    box-shadow: 0px -2px 6px 0px rgba(0, 0, 0, 0.16);
+    padding: 10px;
+  }
+  .od_no {
+    font-size: 13px;
+    font-family: "rubik_r";
+    color: var(--my_theme);
+    text-align: end;
+    margin: 0px 10px 0px 0px;
+  }
+  .data_div {
+    display: flex;
+    padding-bottom: 10px;
+    border-bottom: dashed;
+    border-bottom-width: 1px;
+    border-bottom-color: var(--silver);
+    img {
+      height: 60px;
+      width: 60px;
+      border-radius: 5px;
+      box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
+      border: solid 2px var(--white);
+    }
+    .info_div {
+      padding-left: 15px;
+
+      .name {
+        font-size: 18px;
+        color: var(--blue);
+        font-family: "rubik_md";
+        margin: 0;
+      }
+      .add {
+        margin: 4px 0px;
+        font-family: "rubik_r";
+        font-size: 14px;
+        color: var(--silver);
+      }
+      .gallon {
+        margin: 0;
+      }
+    }
+  }
+  .detail_div {
+    padding: 15px 10px 0px 10px;
+    .date_lbl {
+      font-size: 12px;
+      color: var(--silver);
+      margin-top: 0;
+      margin-bottom: 5px;
+      font-family: "rubik_md";
+    }
+    .data_lbl {
+      font-size: 13px;
+      color: var(--blue);
+      font-family: "rubik_md";
+      margin: 0;
+    }
+    .time_lbl {
+      margin-bottom: 10px;
+    }
+  }
+}
+
+ion-footer {
+  .complete_btn {
+    height: 40px;
+    font-size: 16px;
+  }
+}

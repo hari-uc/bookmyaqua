@@ -1,0 +1,50 @@
+<ion-header class="ion-no-border">
+    <ion-toolbar mode="md">
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>setting</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+    <ion-item mode="md" lines="none">
+        <ion-label class="st_lbl">
+            Phone
+        </ion-label>
+        <ion-label class="num_lbl">
+            {{profile?.phone_no}}
+        </ion-label>
+    </ion-item>
+    <ion-item mode="md" lines="none">
+        <ion-label class="st_lbl">
+            Call
+        </ion-label>
+        <ion-toggle checked>
+        </ion-toggle>
+    </ion-item>
+    <ion-item mode="md" lines="none">
+        <ion-label class="st_lbl">
+            Location
+        </ion-label>
+        <ion-toggle checked>
+        </ion-toggle>
+    </ion-item>
+    <ion-item mode="md" lines="none" (click)="change()">
+        <ion-label class="st_lbl">
+            Notification
+        </ion-label>
+        <ion-toggle [checked]="this.notify == 1" [(ngModel)]="noti">
+        </ion-toggle>
+    </ion-item>
+    <ion-item mode="md" lines="none" detail="true" (click)="changePassword()">
+        <ion-label class="st_lbl">
+            Change Password
+        </ion-label>
+    </ion-item>
+    <ion-item mode="md" lines="none" detail="true" (click)="policy()">
+        <ion-label class="st_lbl">
+            Privacy Policy
+        </ion-label>
+    </ion-item>
+</ion-content>

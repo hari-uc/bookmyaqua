@@ -1,0 +1,129 @@
+ion-header {
+    .week_div {
+        height: 60px;
+        margin-top: 20px;
+        background-color: var(--div_back);
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        .info_lbl {
+            font-size: 16px;
+            color: var(--blue);
+            font-family: "rubik_r";
+            margin: 0;
+        }
+        .dot_div {
+            height: 5px;
+            width: 5px;
+            border-radius: 50%;
+            background-color: var(--blue);
+        }
+        .at_week {
+            color: var(--my_theme);
+            font-size: 16px;
+            font-family: "rubik_r";
+            margin: 0;
+        }
+    }
+    ion-col {
+        padding: 0;
+        .date_lbl {
+            color: var(--blue);
+            font-size: 14px;
+            font-family: "rubik_md";
+            text-align: center;
+            margin-bottom: 0;
+        }
+        ion-datetime {
+            font-size: 14px;
+            font-family: 'rubik_r';
+            color: #9ebcb5;
+            padding-left: 0;
+            text-align: center;
+        }
+    }
+    .first_col {
+        border-right: dashed;
+        border-right-color: var(--my_theme);
+        border-right-width: 1px;
+    }
+    ion-row {
+        border-bottom: dashed;
+        border-bottom-width: 1px;
+        border-bottom-color: var(--my_theme);
+    }
+}
+
+ion-content {
+    ion-label {
+        color: var(--blue);
+        font-weight: 500;
+    }
+    .noData {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 15%;
+        text-align: center;
+    }
+    .main_lbl {
+        font-size: 14px;
+        color: var(--blue);
+        font-family: "rubik_md";
+        margin-top: 5px;
+        margin-bottom: 16px;
+        span {
+            color: var(--my_theme);
+            font-family: "rubik_r";
+        }
+    }
+    .card_div {
+        border-radius: 5px;
+        box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.16);
+        margin-bottom: 25px;
+        padding: 11px 15px 8px 15px;
+        .name {
+            font-size: 16px;
+            color: var(--blue);
+            font-family: "rubik_md";
+            margin-top: 5px;
+            margin-bottom: 3px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            span {
+                font-size: 14px;
+                font-family: "rubik_r";
+                color: var(--my_theme);
+            }
+        }
+        .add {
+            font-size: 14px;
+            color: var(--blue);
+            font-family: "rubik_r";
+            margin-top: 10px;
+            margin-bottom: 0;
+            ion-icon {
+                color: var(--my_theme);
+                margin-right: 10px;
+            }
+        }
+    }
+}
+
+ion-footer {
+    .total_div {
+        height: 50px;
+        background-color: var(--my_theme);
+        display: flex;
+        align-items: center;
+        padding: 0px 30px;
+        .view_lbl {
+            font-size: 18px;
+            color: var(--white);
+            font-family: "rubik_md";
+            margin: 0;
+            width: 100%;
+        }
+    }
+}
